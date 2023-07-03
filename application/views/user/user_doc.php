@@ -20,11 +20,13 @@
         <table class="word-table" style="margin-bottom: 10px">
             <tr>
                 <th>No</th>
-		<th>User Nama</th>
-		<th>User Level</th>
-		<th>User Inisial</th>
-		<th>User Kunci</th>
-		<th>User Aktif</th>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Username</th>
+		<th>Password</th>
+		<th>Avatar</th>
+		<th>Created At</th>
+		<th>Last Login</th>
 		
             </tr><?php
             foreach ($user_data as $user)
@@ -32,11 +34,13 @@
                 ?>
                 <tr>
 		      <td><?php echo ++$start ?></td>
-		      <td><?php echo $user->user_nama ?></td>
-		      <td><?php echo $user->user_level ?></td>
-		      <td><?php echo $user->user_inisial ?></td>
-		      <td><?php echo $user->user_kunci ?></td>
-		      <td><?php echo $user->user_aktif ?></td>	
+		      <td><?php echo $user->name ?></td>
+		      <td><?php echo $user->email ?></td>
+		      <td><?php echo $user->username ?></td>
+		      <td><?php echo $user->password ?></td>
+		      <td><?php echo $user->avatar ?></td>
+		      <td><?php echo $user->created_at ?></td>
+		      <td><?php echo $user->last_login ?></td>	
                 </tr>
                 <?php
             }

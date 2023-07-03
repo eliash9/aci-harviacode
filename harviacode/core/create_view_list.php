@@ -1,21 +1,12 @@
 <?php 
 
-$string = "<!doctype html>
-<html>
-    <head>
-        <title>harviacode.com - codeigniter crud generator</title>
-        <link rel=\"stylesheet\" href=\"<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>\"/>
-        <style>
-            body{
-                padding: 15px;
-            }
-        </style>
-    </head>
-    <body>
-        <h2 style=\"margin-top:0px\">".ucfirst($table_name)." List</h2>
-        <div class=\"row\" style=\"margin-bottom: 10px\">
+$string = "
+<div class=\"content\">
+    <div class=\"intro-y flex flex-col sm:flex-row items-center mt-8\">
+    <h2 class=\"text-lg font-medium mr-auto\">".ucfirst($table_name)." List</h2>
+    <div class=\"w-full sm:w-auto flex mt-4 sm:mt-0\">
             <div class=\"col-md-4\">
-                <?php echo anchor(site_url('".$c_url."/create'),'Create', 'class=\"btn btn-primary\"'); ?>
+                <?php echo anchor(site_url('".$c_url."/create'),'Create', 'class=\"button text-white bg-theme-1 shadow-md mr-2\"'); ?>
             </div>
             <div class=\"col-md-4 text-center\">
                 <div style=\"margin-top: 8px\" id=\"message\">
@@ -43,13 +34,15 @@ $string = "<!doctype html>
                 </form>
             </div>
         </div>
-        <table class=\"table table-bordered\" style=\"margin-bottom: 10px\">
+    </div>
+    <div class=\"intro-y datatable-wrapper box p-5 mt-5\">
+        <table class=\"table table-report table-report--bordered -mt-2\" style=\"margin-bottom: 10px\" width=\"100%\">
             <tr>
-                <th>No</th>";
+            <th class=\"border-b-2 whitespace-no-wrap\">No</th>";
 foreach ($non_pk as $row) {
-    $string .= "\n\t\t<th>" . label($row['column_name']) . "</th>";
+    $string .= "\n\t\t<th class=\"border-b-2 whitespace-no-wrap\">" . label($row['column_name']) . "</th>";
 }
-$string .= "\n\t\t<th>Action</th>
+$string .= "\n\t\t<th class=\"border-b-2 whitespace-no-wrap\">Action</th>
             </tr>";
 $string .= "<?php
             foreach ($" . $c_url . "_data as \$$c_url)
@@ -78,6 +71,7 @@ $string .=  "\n\t\t</tr>
             }
             ?>
         </table>
+        </div>
         <div class=\"row\">
             <div class=\"col-md-6\">
                 <a href=\"#\" class=\"btn btn-primary\">Total Record : <?php echo \$total_rows ?></a>";
@@ -95,8 +89,8 @@ $string .= "\n\t    </div>
                 <?php echo \$pagination ?>
             </div>
         </div>
-    </body>
-</html>";
+        </div>
+    ";
 
 
 $hasil_view_list = createFile($string, $target."views/" . $c_url . "/" . $v_list_file);

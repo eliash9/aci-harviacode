@@ -1,65 +1,74 @@
-<!doctype html>
-<html>
-    <head>
-        <title>harviacode.com - codeigniter crud generator</title>
-        <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
-        <link rel="stylesheet" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
-        <link rel="stylesheet" href="<?php echo base_url('assets/datatables/dataTables.bootstrap.css') ?>"/>
-        <style>
-            .dataTables_wrapper {
-                min-height: 500px
-            }
-            
-            .dataTables_processing {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 100%;
-                margin-left: -50%;
-                margin-top: -25px;
-                padding-top: 20px;
-                text-align: center;
-                font-size: 1.2em;
-                color:grey;
-            }
-            body{
-                padding: 15px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="row" style="margin-bottom: 10px">
-            <div class="col-md-4">
-                <h2 style="margin-top:0px">User List</h2>
-            </div>
-            <div class="col-md-4 text-center">
-                <div style="margin-top: 4px"  id="message">
-                    <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
+
+<div class="content">
+
+        <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+            <h2 class="text-lg font-medium mr-auto">
+            User
+            </h2>
+            <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+                <a href="<?=site_url('user/create');?>" class="button text-white bg-theme-1 shadow-md mr-2">Add New </a>
+                <div class="dropdown relative ml-auto sm:ml-0">
+                    <button class="dropdown-toggle button px-2 box text-gray-700">
+                        <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
+                    </button>
+                    <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
+                        <div class="dropdown-box__content box p-2">                       
+                            <a href="<?=site_url('user/excel')?>" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> Excel </a>
+                            <a href="<?=site_url('user/word')?>" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> Word </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4 text-right">
-                <?php echo anchor(site_url('user/create'), 'Create', 'class="btn btn-primary"'); ?>
-		<?php echo anchor(site_url('user/excel'), 'Excel', 'class="btn btn-primary"'); ?>
-		<?php echo anchor(site_url('user/word'), 'Word', 'class="btn btn-primary"'); ?>
-	    </div>
         </div>
-        <table class="table table-bordered table-striped" id="mytable">
+
+
+
+
+
+        <div class="intro-y datatable-wrapper box p-5 mt-5">
+                     
+        <table class="table table-report table-report--bordered display w-full -mt-2" id="mytable" width="100%">
+
             <thead>
                 <tr>
-                    <th width="80px">No</th>
-		    <th>User Nama</th>
-		    <th>User Level</th>
-		    <th>User Inisial</th>
-		    <th>User Kunci</th>
-		    <th>User Aktif</th>
-		    <th width="200px">Action</th>
+                    <th class="border-b-2 whitespace-no-wrap">No</th>
+		    <th class="border-b-2 whitespace-no-wrap">Name</th>
+		    <th class="border-b-2 whitespace-no-wrap">Email</th>
+		    <th class="border-b-2 whitespace-no-wrap">Username</th>
+		    <th class="border-b-2 whitespace-no-wrap">Password</th>
+		    <th class="border-b-2 whitespace-no-wrap">Avatar</th>
+		    <th class="border-b-2 whitespace-no-wrap">Created At</th>
+		    <th class="border-b-2 whitespace-no-wrap">Last Login</th>
+		    <th class="border-b-2 whitespace-no-wrap">Action</th>
                 </tr>
             </thead>
 	    
         </table>
+        </div>
+</div>
+
+    <div class="modal" id="success-modal-preview"> 
+        <div class="modal__content"> 
+            <div class="p-5 text-center"> 
+                <i data-feather="check-circle" class="w-16 h-16 text-theme-9 mx-auto mt-3"></i> 
+                <div class="text-3xl mt-5">Good job!
+    
+                </div> 
+                <div class="text-gray-600 mt-2">
+                <?php echo $this->session->userdata('message') <> '' ? $this->session->userdata('message') : ''; ?>
+    
+                </div> 
+            </div> 
+            <div class="px-5 pb-8 text-center"> 
+                <button type="button" data-dismiss="modal" class="button w-24 bg-theme-1 text-white">Ok
+    
+                </button> 
+            </div> 
+        </div> 
+    </div>
+
+
         <script src="<?php echo base_url('assets/js/jquery-1.11.2.min.js') ?>"></script>
-        <script src="<?php echo base_url('assets/datatables/jquery.dataTables.js') ?>"></script>
-        <script src="<?php echo base_url('assets/datatables/dataTables.bootstrap.js') ?>"></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
@@ -91,12 +100,22 @@
                     },
                     processing: true,
                     serverSide: true,
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.childRowImmediate
+                        }
+                    },
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.childRowImmediate
+                        }
+                    },
                     ajax: {"url": "user/json", "type": "POST"},
                     columns: [
                         {
-                            "data": "user_id",
+                            "data": "id",
                             "orderable": false
-                        },{"data": "user_nama"},{"data": "user_level"},{"data": "user_inisial"},{"data": "user_kunci"},{"data": "user_aktif"},
+                        },{"data": "name"},{"data": "email"},{"data": "username"},{"data": "password"},{"data": "avatar"},{"data": "created_at"},{"data": "last_login"},
                         {
                             "data" : "action",
                             "orderable": false,
@@ -114,5 +133,4 @@
                 });
             });
         </script>
-    </body>
-</html>
+    

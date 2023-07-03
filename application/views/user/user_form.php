@@ -1,40 +1,42 @@
-<!doctype html>
-<html>
-    <head>
-        <title>harviacode.com - codeigniter crud generator</title>
-        <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css') ?>"/>
-        <style>
-            body{
-                padding: 15px;
-            }
-        </style>
-    </head>
-    <body>
-        <h2 style="margin-top:0px">User <?php echo $button ?></h2>
-        <form action="<?php echo $action; ?>" method="post">
-	    <div class="form-group">
-            <label for="varchar">User Nama <?php echo form_error('user_nama') ?></label>
-            <input type="text" class="form-control" name="user_nama" id="user_nama" placeholder="User Nama" value="<?php echo $user_nama; ?>" />
+<div class="content">
+        
+                    
+                    <div class="col-span-12 lg:col-span-12 xxl:col-span-9">
+                        <div class="intro-y flex items-center mt-8">
+                    <h2 class="text-lg font-medium mr-auto">
+                       User <?php echo $button ?>
+                    </h2>
+                </div>   <div class="col-span-12 lg:col-span-6 xxl:col-span-9 intro-y box p-5"><form action="<?php echo $action; ?>" method="post">
+	    <div class="mt-3">
+            <label for="varchar">Name <?php echo form_error('name') ?></label>
+            <input type="text" class="input w-full border mt-2" name="name" id="name" placeholder="Name" value="<?php echo $name; ?>" />
         </div>
-	    <div class="form-group">
-            <label for="int">User Level <?php echo form_error('user_level') ?></label>
-            <input type="text" class="form-control" name="user_level" id="user_level" placeholder="User Level" value="<?php echo $user_level; ?>" />
+	    <div class="mt-3">
+            <label for="varchar">Email <?php echo form_error('email') ?></label>
+            <input type="text" class="input w-full border mt-2" name="email" id="email" placeholder="Email" value="<?php echo $email; ?>" />
         </div>
-	    <div class="form-group">
-            <label for="username">User Inisial <?php echo form_error('user_inisial') ?></label>
-            <input type="username" class="form-control" name="user_inisial" id="user_inisial" placeholder="User Inisial" value="<?php echo $user_inisial; ?>" />
+	    <div class="mt-3">
+            <label for="varchar">Username <?php echo form_error('username') ?></label>
+            <input type="text" class="input w-full border mt-2" name="username" id="username" placeholder="Username" value="<?php echo $username; ?>" />
         </div>
-	    <div class="form-group">
-            <label for="password">User Kunci <?php echo form_error('user_kunci') ?></label>
-            <input type="password" class="form-control" name="user_kunci" id="user_kunci" placeholder="User Kunci" value="<?php echo $user_kunci; ?>" />
+	    <div class="mt-3">
+            <label for="varchar">Password <?php echo form_error('password') ?></label>
+            <input type="text" class="input w-full border mt-2" name="password" id="password" placeholder="Password" value="<?php echo $password; ?>" />
         </div>
-	    <div class="form-group">
-            <label for="enum">User Aktif <?php echo form_error('user_aktif') ?></label>
-            <input type="text" class="form-control" name="user_aktif" id="user_aktif" placeholder="User Aktif" value="<?php echo $user_aktif; ?>" />
+	    <div class="mt-3">
+            <label for="varchar">Avatar <?php echo form_error('avatar') ?></label>
+            <input type="text" class="input w-full border mt-2" name="avatar" id="avatar" placeholder="Avatar" value="<?php echo $avatar; ?>" />
         </div>
-	    <input type="hidden" name="user_id" value="<?php echo $user_id; ?>" /> 
-	    <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
-	    <a href="<?php echo site_url('user') ?>" class="btn btn-default">Cancel</a>
-	</form>
-    </body>
-</html>
+	    <div class="mt-3">
+            <label for="timestamp">Created At <?php echo form_error('created_at') ?></label>
+            <input type="text" class="input w-full border mt-2" name="created_at" id="created_at" placeholder="Created At" value="<?php echo $created_at; ?>" />
+        </div>
+	    <div class="mt-3">
+            <label for="timestamp">Last Login <?php echo form_error('last_login') ?></label>
+            <input type="text" class="input w-full border mt-2" name="last_login" id="last_login" placeholder="Last Login" value="<?php echo $last_login; ?>" />
+        </div>
+	    <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
+	    <button type="submit" class="button w-20 bg-theme-1 text-white mt-3"><?php echo $button ?></button> 
+	    <a href="<?php echo site_url('user') ?>" class="button w-20 bg-theme-2 text-white mt-3">Cancel</a>
+	</form></div></div></div>
+   

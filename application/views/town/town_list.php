@@ -93,6 +93,11 @@
                     },
                     processing: true,
                     serverSide: true,
+                    responsive: {
+                        details: {
+                            display: $.fn.dataTable.Responsive.display.childRowImmediate
+                        }
+                    },
                     ajax: {"url": "town/json", "type": "POST"},
                     columns: [
                         {
