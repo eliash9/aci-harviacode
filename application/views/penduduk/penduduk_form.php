@@ -29,7 +29,7 @@
                                                 <div title="Remove this profile photo?" class="tooltip remove-foto w-5 h-5 flex items-center justify-center absolute rounded-full text-white bg-theme-6 right-0 top-0 -mr-2 -mt-2"> <i data-feather="x" class="w-4 h-4"></i> </div>
                                             </div>
                                             <div class="w-40 mx-auto cursor-pointer relative mt-5">
-                                                <button type="button" class="button w-full bg-theme-1 text-white">Change Photo</button>
+                                                <button type="button" class="button w-full bg-theme-1 text-white">Ganti Photo</button>
                                                 <input name="image" type="file" class="w-full h-full top-0 left-0 absolute opacity-0" id="upload-input">
                                             </div>
                                         </div>
@@ -37,8 +37,11 @@
                                     <div class="col-span-12 xl:col-span-8">
                                         <div>
                                             <label for="varchar">Nik <?php echo form_error('nik') ?></label>
-                                            <input type="text"class="input w-full border bg-gray-100 mt-2" name="nik" id="nik" placeholder="Nik" value="<?php echo $nik; ?>" />
-        
+                                            <div class="grid grid-cols-12 gap-2"> 
+                                                <input type="text"class="input w-full border col-span-6 bg-gray-100 mt-2" name="nik" id="nik" placeholder="Nik" value="<?php echo $nik; ?>" />
+                                                <input type="text"class="input w-full border col-span-6 bg-gray-100 mt-2" name="no_kk" id="nik" placeholder="No KK" value="<?php echo $no_kk; ?>" />
+                                          
+                                            </div>
                                          </div>
                                          <div>
                                             <label for="varchar">Nama <?php echo form_error('nama') ?></label>
@@ -58,6 +61,19 @@
                                                 ?>
                                                     <option value="Laki-laki" <?=$selected?>>Laki-Laki</option>
                                                     <option value="Perempuan" <?=$selected?> >Perempuan</option>
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <label>Agama <?php echo form_error('agama') ?></label>
+                                            <div class="mt-2">
+                                                <select class="select2 w-full" name="agama" id="agama">
+                                                    <option value="ISLAM" <?=($agama=='ISLAM')?'selected':''?>>ISLAM</option>
+                                                    <option value="KRISTEN" <?=($agama=='KRISTEN')?'selected':''?>>KRISTEN</option>
+                                                    <option value="KATOLIK" <?=($agama=='KATOLIK')?'selected':''?>>KATOLIK</option>
+                                                    <option value="HINDU" <?=($agama=='HINDU')?'selected':''?>>HINDU</option>
+                                                    <option value="BUDHA" <?=($agama=='BUDHA')?'selected':''?>>BUDHA</option>
                                                    
                                                 </select>
                                             </div>
@@ -152,7 +168,7 @@
 
                                         <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
                                         <button type="submit" class="button w-20 bg-theme-1 text-white mt-3"><?php echo $button ?></button> 
-                                        <a href="<?php echo site_url('penduduk') ?>" class="button w-20 bg-theme-2 text-white mt-3">Cancel</a>
+                                        <a href="<?php echo site_url('penduduk') ?>" class="button w-20 bg-theme-2 mt-3">Cancel</a>
                                    
                                     </div>
                                 </div>

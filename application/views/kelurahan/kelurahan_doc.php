@@ -22,6 +22,9 @@
                 <th>No</th>
 		<th>Kecamatan Id</th>
 		<th>Nama</th>
+		<th>Kades</th>
+		<th>Alamat</th>
+		<th>Telepon</th>
 		
             </tr><?php
             foreach ($kelurahan_data as $kelurahan)
@@ -30,7 +33,10 @@
                 <tr>
 		      <td><?php echo ++$start ?></td>
 		      <td><?php echo $kelurahan->kecamatan_id ?></td>
-		      <td><?php echo $kelurahan->nama ?></td>	
+		      <td><?php echo $kelurahan->nama ?></td>
+		      <td><?php echo $kelurahan->kades ?></td>
+		      <td><?php echo $kelurahan->alamat ?></td>
+		      <td><?php echo $kelurahan->telepon ?></td>	
                 </tr>
                 <?php
             }

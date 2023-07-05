@@ -11,7 +11,9 @@
         <table class="table table-report table-report--bordered display w-full -mt-2">
 	    <tr><td class="border-b-2 whitespace-no-wrap">Kodya Id</td><td class="border-b-2 whitespace-no-wrap"><?php echo $kodya_id; ?></td></tr>
 	    <tr><td class="border-b-2 whitespace-no-wrap">Nama</td><td class="border-b-2 whitespace-no-wrap"><?php echo $nama; ?></td></tr>
-	    <tr><td class="border-b-2 whitespace-no-wrap">Id Dagri</td><td class="border-b-2 whitespace-no-wrap"><?php echo $id_dagri; ?></td></tr>
+	    <tr><td class="border-b-2 whitespace-no-wrap">Camat</td><td class="border-b-2 whitespace-no-wrap"><?php echo $camat; ?></td></tr>
+	    <tr><td class="border-b-2 whitespace-no-wrap">Alamat</td><td class="border-b-2 whitespace-no-wrap"><?php echo $alamat; ?></td></tr>
+	    <tr><td class="border-b-2 whitespace-no-wrap">Telp</td><td class="border-b-2 whitespace-no-wrap"><?php echo $telp; ?></td></tr>
 	    <tr><td class="border-b-2 whitespace-no-wrap"></td><td class="border-b-2 whitespace-no-wrap"><a href="<?php echo site_url('kecamatan') ?>" class="button w-20 bg-theme-1 text-white mt-3">Cancel</a></td></tr>
 	</table></div></div></div>
        

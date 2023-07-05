@@ -8,7 +8,11 @@ class User extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if($this->session->userdata('status') != "login"){
+			redirect(base_url("login"));
+		}
         $this->load->model('User_model');
+        $this->load->model('Location_model');
         $this->load->library('form_validation');        
 	$this->load->library('datatables');
     }
@@ -35,10 +39,7 @@ class User extends CI_Controller
 		'name' => $row->name,
 		'email' => $row->email,
 		'username' => $row->username,
-		'password' => $row->password,
-		'avatar' => $row->avatar,
-		'created_at' => $row->created_at,
-		'last_login' => $row->last_login,
+        'desa' => $row->username,
 	    );
           
             $this->load->view('parsial/head');
@@ -62,11 +63,9 @@ class User extends CI_Controller
 	    'email' => set_value('email'),
 	    'username' => set_value('username'),
 	    'password' => set_value('password'),
-	    'avatar' => set_value('avatar'),
-	    'created_at' => set_value('created_at'),
-	    'last_login' => set_value('last_login'),
+        'desa' => set_value('desa'),
 	);
-       
+    $data['kelurahans'] = $this->Location_model->get_desa();
 $this->load->view('parsial/head');
         $this->load->view('user/user_form', $data);
         $this->load->view('parsial/foot');
@@ -83,10 +82,8 @@ $this->load->view('parsial/head');
 		'name' => $this->input->post('name',TRUE),
 		'email' => $this->input->post('email',TRUE),
 		'username' => $this->input->post('username',TRUE),
-		'password' => $this->input->post('password',TRUE),
-		'avatar' => $this->input->post('avatar',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'last_login' => $this->input->post('last_login',TRUE),
+		'password' => sha1($this->input->post('password',TRUE)),
+        'desa' => $this->input->post('desa',TRUE),
 	    );
 
             $this->User_model->insert($data);
@@ -103,17 +100,15 @@ $this->load->view('parsial/head');
             $data = array(
                 'button' => 'Update',
                 'action' => site_url('user/update_action'),
-		'id' => set_value('id', $row->id),
-		'name' => set_value('name', $row->name),
-		'email' => set_value('email', $row->email),
-		'username' => set_value('username', $row->username),
-		'password' => set_value('password', $row->password),
-		'avatar' => set_value('avatar', $row->avatar),
-		'created_at' => set_value('created_at', $row->created_at),
-		'last_login' => set_value('last_login', $row->last_login),
-	    );
-          
-$this->load->view('parsial/head');
+                'id' => set_value('id', $row->id),
+                'name' => set_value('name', $row->name),
+                'email' => set_value('email', $row->email),
+                'username' => set_value('username', $row->username),
+                'password' => set_value('password'),
+                'desa' => set_value('desa', $row->desa),
+                );
+             $data['kelurahans'] = $this->Location_model->get_desa();
+            $this->load->view('parsial/head');
             $this->load->view('user/user_form', $data);
             $this->load->view('parsial/foot');
         } else {
@@ -129,15 +124,19 @@ $this->load->view('parsial/head');
         if ($this->form_validation->run() == FALSE) {
             $this->update($this->input->post('id', TRUE));
         } else {
+
+
             $data = array(
 		'name' => $this->input->post('name',TRUE),
 		'email' => $this->input->post('email',TRUE),
 		'username' => $this->input->post('username',TRUE),
-		'password' => $this->input->post('password',TRUE),
-		'avatar' => $this->input->post('avatar',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'last_login' => $this->input->post('last_login',TRUE),
+		//'password' => sha1($this->input->post('password',TRUE)),
+		'desa' => $this->input->post('desa',TRUE),
 	    );
+
+        if($this->input->post('password')!=""){
+            $data['password']=sha1($this->input->post('password',TRUE));
+        }
 
             $this->User_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -164,10 +163,10 @@ $this->load->view('parsial/head');
 	$this->form_validation->set_rules('name', 'name', 'trim|required');
 	$this->form_validation->set_rules('email', 'email', 'trim|required');
 	$this->form_validation->set_rules('username', 'username', 'trim|required');
-	$this->form_validation->set_rules('password', 'password', 'trim|required');
-	$this->form_validation->set_rules('avatar', 'avatar', 'trim|required');
-	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
-	$this->form_validation->set_rules('last_login', 'last login', 'trim|required');
+//	$this->form_validation->set_rules('password', 'password', 'trim|required');
+//	$this->form_validation->set_rules('avatar', 'avatar', 'trim|required');
+//	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
+//	$this->form_validation->set_rules('last_login', 'last login', 'trim|required');
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

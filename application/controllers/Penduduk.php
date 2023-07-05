@@ -11,6 +11,9 @@ class Penduduk extends CI_Controller
         if($this->session->userdata('status') != "login"){
 			redirect(base_url("login"));
 		}
+        if($this->session->userdata('status') != "login"){
+			redirect(base_url("login"));
+		}
         $this->load->model('Penduduk_model');
         $this->load->library('form_validation');        
 		$this->load->library('datatables');
@@ -58,6 +61,10 @@ class Penduduk extends CI_Controller
 		'nama_kec' => $row->nama_kec,
 		'no_kel' => $row->no_kel,
 		'nama_kel' => $row->nama_kel,
+        'agama'=>$row->agama,
+        'no_kk'=> $row->no_kk,
+        'status_perkawinan'=> $row->status_perkawinan,
+        'pendidikan_terakhir'=> $row->pendidikan_terakhir,
 	    );
           
             $this->load->view('parsial/head');
@@ -95,13 +102,17 @@ class Penduduk extends CI_Controller
         'foto'=>'200x200.jpg',
         'tmp_lahir'=> set_value('tmp_lahir'),
         'tgl_lahir'=> set_value('tgl_lahir'),
+        'agama'=>set_value('agama'),
+        'no_kk'=> set_value('no_kk'),
+        'status_perkawinan'=> set_value('status_perkawinan'),
+        'pendidikan_terakhir'=> set_value('pendidikan_terakhir'),
+       
 	);
 
         $data['provinces'] = $this->location_model->get_provinces();
         $data['cities'] = array();
         $data['subdistricts'] = array();
-        $data['kelurahans'] = array();
-       
+        $data['kelurahans'] = array();       
         $this->load->view('parsial/head');
         $this->load->view('penduduk/penduduk_form', $data);
         $this->load->view('parsial/foot');
@@ -179,6 +190,10 @@ class Penduduk extends CI_Controller
 		'foto'=>$filename,
         'tmp_lahir'=>$this->input->post('tmp_lahir',TRUE),
         'tgl_lahir'=>$this->input->post('tgl_lahir',TRUE),
+        'agama'=>$this->input->post('agama',TRUE),
+        'no_kk'=>$this->input->post('no_kk',TRUE),
+        'status_perkawinan'=> $this->input->post('status_perkawinan',TRUE),
+        'pendidikan_terakhir'=> $this->input->post('pendidikan_terakhir',TRUE),
 	    );
 
             $this->Penduduk_model->insert($data);
@@ -214,6 +229,10 @@ class Penduduk extends CI_Controller
         'foto'=> set_value('nama_kel', $row->foto),
         'tmp_lahir'=>set_value('nama_kel', $row->tmp_lahir),
         'tgl_lahir'=>set_value('nama_kel', $row->tgl_lahir),
+        'agama'=>set_value('agama', $row->agama),
+        'no_kk'=> set_value('no_kk', $row->no_kk),
+        'status_perkawinan'=> set_value('status_perkawinan', $row->status_perkawinan),
+        'pendidikan_terakhir'=> set_value('pendidikan_terakhir', $row->pendidikan_terakhir),
 
 	    );
 
@@ -275,6 +294,10 @@ class Penduduk extends CI_Controller
                 'foto'=>$filename,
                 'tmp_lahir'=>$this->input->post('tmp_lahir',TRUE),
                 'tgl_lahir'=>$this->input->post('tgl_lahir',TRUE),
+                'agama'=>$this->input->post('agama',TRUE),
+                'no_kk'=>$this->input->post('no_kk',TRUE),
+                'status_perkawinan'=> $this->input->post('status_perkawinan',TRUE),
+                'pendidikan_terakhir'=> $this->input->post('pendidikan_terakhir',TRUE),
 			    );
 
             $this->Penduduk_model->update($this->input->post('id', TRUE), $data);

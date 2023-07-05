@@ -17,7 +17,7 @@ class User_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('id,name,email,username,password,avatar,created_at,last_login');
+        $this->datatables->select('id,name,email,username,password,desa,avatar,created_at,last_login');
         $this->datatables->from('user');
         //add this line for join
         //$this->datatables->join('table2', 'user.field = table2.field');
@@ -45,10 +45,6 @@ class User_model extends CI_Model
 	$this->db->or_like('name', $q);
 	$this->db->or_like('email', $q);
 	$this->db->or_like('username', $q);
-	$this->db->or_like('password', $q);
-	$this->db->or_like('avatar', $q);
-	$this->db->or_like('created_at', $q);
-	$this->db->or_like('last_login', $q);
 	$this->db->from($this->table);
         return $this->db->count_all_results();
     }
@@ -60,7 +56,6 @@ class User_model extends CI_Model
 	$this->db->or_like('name', $q);
 	$this->db->or_like('email', $q);
 	$this->db->or_like('username', $q);
-	$this->db->or_like('password', $q);
 	$this->db->or_like('avatar', $q);
 	$this->db->or_like('created_at', $q);
 	$this->db->or_like('last_login', $q);

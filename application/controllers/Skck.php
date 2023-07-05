@@ -8,11 +8,15 @@ class Skck extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if($this->session->userdata('status') != "login"){
+			redirect(base_url("login"));
+		}
         $this->load->model('Skck_model');
         $this->load->model('Penduduk_model');
         $this->load->library('form_validation');        
 	    $this->load->library('datatables');
     }
+
 
     public function index()
     {

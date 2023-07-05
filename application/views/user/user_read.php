@@ -1,4 +1,5 @@
 <div class="content">
+<?php  $this->load->view('parsial/top_bar');?>
          
                     
                     <div class="col-span-12 lg:col-span-12 xxl:col-span-9">
@@ -12,10 +13,7 @@
 	    <tr><td class="border-b-2 whitespace-no-wrap">Name</td><td class="border-b-2 whitespace-no-wrap"><?php echo $name; ?></td></tr>
 	    <tr><td class="border-b-2 whitespace-no-wrap">Email</td><td class="border-b-2 whitespace-no-wrap"><?php echo $email; ?></td></tr>
 	    <tr><td class="border-b-2 whitespace-no-wrap">Username</td><td class="border-b-2 whitespace-no-wrap"><?php echo $username; ?></td></tr>
-	    <tr><td class="border-b-2 whitespace-no-wrap">Password</td><td class="border-b-2 whitespace-no-wrap"><?php echo $password; ?></td></tr>
-	    <tr><td class="border-b-2 whitespace-no-wrap">Avatar</td><td class="border-b-2 whitespace-no-wrap"><?php echo $avatar; ?></td></tr>
-	    <tr><td class="border-b-2 whitespace-no-wrap">Created At</td><td class="border-b-2 whitespace-no-wrap"><?php echo $created_at; ?></td></tr>
-	    <tr><td class="border-b-2 whitespace-no-wrap">Last Login</td><td class="border-b-2 whitespace-no-wrap"><?php echo $last_login; ?></td></tr>
+	    <tr><td class="border-b-2 whitespace-no-wrap">Desa</td><td class="border-b-2 whitespace-no-wrap"><?php echo $desa; ?></td></tr>
 	    <tr><td class="border-b-2 whitespace-no-wrap"></td><td class="border-b-2 whitespace-no-wrap"><a href="<?php echo site_url('user') ?>" class="button w-20 bg-theme-1 text-white mt-3">Cancel</a></td></tr>
 	</table></div></div></div>
        

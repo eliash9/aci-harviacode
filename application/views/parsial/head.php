@@ -5,8 +5,8 @@
         <meta charset="utf-8">
         <link href="<?php echo base_url();?>dist/images/logo.svg" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
-        <meta name="keywords" content="admin template, Midone admin template, dashboard template, flat admin template, responsive admin template, web app">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
         <meta name="author" content="LEFT4CODE">
         <title>Dashboard <?php echo settings('nama')?></title>
         <!-- BEGIN: CSS Assets-->
@@ -81,7 +81,7 @@
            
             <nav class="side-nav">
                 <a href="<?php echo base_url();?>" class="intro-x flex items-center pl-5 pt-4">
-                    <img alt="Travel" class="w-6" src="<?php echo base_url('assets/img/');?><?php echo settings('logo')?>">
+                    <img alt="logo" class="w-6" src="<?php echo base_url('assets/img/');?><?php echo settings('logo')?>">
                     <span class="hidden xl:block text-white text-lg ml-3"> <span class="font-medium"><?php echo settings('nama')?></span> </span>
                 </a>
                 <div class="side-nav__devider my-6"></div>

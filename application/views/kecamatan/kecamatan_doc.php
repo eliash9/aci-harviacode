@@ -22,7 +22,9 @@
                 <th>No</th>
 		<th>Kodya Id</th>
 		<th>Nama</th>
-		<th>Id Dagri</th>
+		<th>Camat</th>
+		<th>Alamat</th>
+		<th>Telp</th>
 		
             </tr><?php
             foreach ($kecamatan_data as $kecamatan)
@@ -32,7 +34,9 @@
 		      <td><?php echo ++$start ?></td>
 		      <td><?php echo $kecamatan->kodya_id ?></td>
 		      <td><?php echo $kecamatan->nama ?></td>
-		      <td><?php echo $kecamatan->id_dagri ?></td>	
+		      <td><?php echo $kecamatan->camat ?></td>
+		      <td><?php echo $kecamatan->alamat ?></td>
+		      <td><?php echo $kecamatan->telp ?></td>	
                 </tr>
                 <?php
             }

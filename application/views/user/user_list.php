@@ -1,5 +1,5 @@
-
 <div class="content">
+<?php  $this->load->view('parsial/top_bar');?>
 
         <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
             <h2 class="text-lg font-medium mr-auto">
@@ -12,10 +12,10 @@
                         <span class="w-5 h-5 flex items-center justify-center"> <i class="w-4 h-4" data-feather="plus"></i> </span>
                     </button>
                     <div class="dropdown-box mt-10 absolute w-40 top-0 right-0 z-20">
-                        <div class="dropdown-box__content box p-2">                       
+                        <!--div class="dropdown-box__content box p-2">                       
                             <a href="<?=site_url('user/excel')?>" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> Excel </a>
                             <a href="<?=site_url('user/word')?>" class="flex items-center block p-2 transition duration-300 ease-in-out bg-white hover:bg-gray-200 rounded-md"> <i data-feather="file-plus" class="w-4 h-4 mr-2"></i> Word </a>
-                        </div>
+                        </div-->
                     </div>
                 </div>
             </div>
@@ -35,10 +35,7 @@
 		    <th class="border-b-2 whitespace-no-wrap">Name</th>
 		    <th class="border-b-2 whitespace-no-wrap">Email</th>
 		    <th class="border-b-2 whitespace-no-wrap">Username</th>
-		    <th class="border-b-2 whitespace-no-wrap">Password</th>
-		    <th class="border-b-2 whitespace-no-wrap">Avatar</th>
-		    <th class="border-b-2 whitespace-no-wrap">Created At</th>
-		    <th class="border-b-2 whitespace-no-wrap">Last Login</th>
+		    <th class="border-b-2 whitespace-no-wrap">Desa</th>
 		    <th class="border-b-2 whitespace-no-wrap">Action</th>
                 </tr>
             </thead>
@@ -115,7 +112,7 @@
                         {
                             "data": "id",
                             "orderable": false
-                        },{"data": "name"},{"data": "email"},{"data": "username"},{"data": "password"},{"data": "avatar"},{"data": "created_at"},{"data": "last_login"},
+                        },{"data": "name"},{"data": "email"},{"data": "username"},{"data": "desa"},
                         {
                             "data" : "action",
                             "orderable": false,

@@ -34,6 +34,9 @@
                     <th class="border-b-2 whitespace-no-wrap">No</th>
 		    <th class="border-b-2 whitespace-no-wrap">Kecamatan Id</th>
 		    <th class="border-b-2 whitespace-no-wrap">Nama</th>
+		    <th class="border-b-2 whitespace-no-wrap">Kades</th>
+		    <th class="border-b-2 whitespace-no-wrap">Alamat</th>
+		    <th class="border-b-2 whitespace-no-wrap">Telepon</th>
 		    <th class="border-b-2 whitespace-no-wrap">Action</th>
                 </tr>
             </thead>
@@ -100,17 +103,12 @@
                             display: $.fn.dataTable.Responsive.display.childRowImmediate
                         }
                     },
-                    responsive: {
-                        details: {
-                            display: $.fn.dataTable.Responsive.display.childRowImmediate
-                        }
-                    },
                     ajax: {"url": "kelurahan/json", "type": "POST"},
                     columns: [
                         {
                             "data": "id",
                             "orderable": false
-                        },{"data": "kecamatan_id"},{"data": "nama"},
+                        },{"data": "kecamatan_id"},{"data": "nama"},{"data": "kades"},{"data": "alamat"},{"data": "telepon"},
                         {
                             "data" : "action",
                             "orderable": false,

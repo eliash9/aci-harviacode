@@ -17,6 +17,6 @@
         </div>
 	    <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
 	    <button type="submit" class="button w-20 bg-theme-1 text-white mt-3"><?php echo $button ?></button> 
-	    <a href="<?php echo site_url('kodya') ?>" class="button w-20 bg-theme-2 text-white mt-3">Cancel</a>
+	    <a href="<?php echo site_url('kodya') ?>" class="button w-20 bg-theme-2 mt-3">Cancel</a>
 	</form></div></div></div>
    

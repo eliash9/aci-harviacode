@@ -45,8 +45,8 @@
                         <div class="dropdown-box mt-10 absolute w-56 top-0 right-0 z-20">
                             <div class="dropdown-box__content box bg-theme-38 text-white">
                                 <div class="p-4 border-b border-theme-40">
-                                    <div class="font-medium">Brad Pitt</div>
-                                    <div class="text-xs text-theme-41">Backend Engineer</div>
+                                    <div class="font-medium"><?php echo $this->session->userdata('nama')?></div>
+                                    <div class="text-xs text-theme-41"><?php echo $this->session->userdata('desa')?></div>
                                 </div>
                                 <!--div class="p-2">
                                     <a href="" class="flex items-center block p-2 transition duration-300 ease-in-out hover:bg-theme-1 rounded-md"> <i data-feather="user" class="w-4 h-4 mr-2"></i> Profile </a>

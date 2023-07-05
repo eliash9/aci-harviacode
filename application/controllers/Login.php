@@ -3,7 +3,8 @@
 class Login extends CI_Controller{
  
 	function __construct(){
-		parent::__construct();		
+		parent::__construct();
+		      
 		$this->load->model('m_login');
  
 	}
@@ -14,17 +15,18 @@ class Login extends CI_Controller{
  
 	function aksi_login(){
 		$username = $this->input->post('username');
-		$password = $this->input->post('password');
+	//	$password = $this->input->post('password');
 		$where = array(
-			'username' => $username,
-			'password' => md5($password)
+			'username' =>  $this->input->post('username',TRUE),
+			'password' =>sha1($this->input->post('password', TRUE)),
 			);
-		$cek = $this->m_login->cek_login("admin",$where)->num_rows();
+		$cek = $this->m_login->cek_login("user",$where)->num_rows();
 		if($cek > 0){
- 
+			$profil = $this->m_login->cek_login("user",$where)->row();
 			$data_session = array(
 				'nama' => $username,
-				'status' => "login"
+				'status' => "login",
+				'desa'=>$profil->desa,
 				);
  
 			$this->session->set_userdata($data_session);

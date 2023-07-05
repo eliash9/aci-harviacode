@@ -34,7 +34,9 @@
                     <th class="border-b-2 whitespace-no-wrap">No</th>
 		    <th class="border-b-2 whitespace-no-wrap">Kodya Id</th>
 		    <th class="border-b-2 whitespace-no-wrap">Nama</th>
-		    <th class="border-b-2 whitespace-no-wrap">Id Dagri</th>
+		    <th class="border-b-2 whitespace-no-wrap">Camat</th>
+		    <th class="border-b-2 whitespace-no-wrap">Alamat</th>
+		    <th class="border-b-2 whitespace-no-wrap">Telp</th>
 		    <th class="border-b-2 whitespace-no-wrap">Action</th>
                 </tr>
             </thead>
@@ -101,17 +103,12 @@
                             display: $.fn.dataTable.Responsive.display.childRowImmediate
                         }
                     },
-                    responsive: {
-                        details: {
-                            display: $.fn.dataTable.Responsive.display.childRowImmediate
-                        }
-                    },
                     ajax: {"url": "kecamatan/json", "type": "POST"},
                     columns: [
                         {
                             "data": "id",
                             "orderable": false
-                        },{"data": "kodya_id"},{"data": "nama"},{"data": "id_dagri"},
+                        },{"data": "kodya_id"},{"data": "nama"},{"data": "camat"},{"data": "alamat"},{"data": "telp"},
                         {
                             "data" : "action",
                             "orderable": false,

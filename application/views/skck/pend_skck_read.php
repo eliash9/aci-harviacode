@@ -4,7 +4,7 @@
                     <div class="col-span-12 lg:col-span-12 xxl:col-span-9">
                         <div class="intro-y flex items-center mt-8">
                     <h2 class="text-lg font-medium mr-auto">
-                       Pend_skck Read
+                       Permohonan Read
                     </h2>
                 </div>
         <div class="intro-y datatable-wrapper box p-5 mt-5">

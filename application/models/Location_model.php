@@ -21,4 +21,9 @@ class Location_model extends CI_Model {
         return $query->result_array();
     }
 
+    public function get_desa() {
+        $query = $this->db->get_where('kelurahan', array('kecamatan_id' => '3514080'));
+        return $query->result_array();
+    }
+
 }

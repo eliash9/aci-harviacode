@@ -16,8 +16,16 @@
             <input type="text" class="input w-full border mt-2" name="nama" id="nama" placeholder="Nama" value="<?php echo $nama; ?>" />
         </div>
 	    <div class="mt-3">
-            <label for="char">Id Dagri <?php echo form_error('id_dagri') ?></label>
-            <input type="text" class="input w-full border mt-2" name="id_dagri" id="id_dagri" placeholder="Id Dagri" value="<?php echo $id_dagri; ?>" />
+            <label for="varchar">Camat <?php echo form_error('camat') ?></label>
+            <input type="text" class="input w-full border mt-2" name="camat" id="camat" placeholder="Camat" value="<?php echo $camat; ?>" />
+        </div>
+	    <div class="mt-3">
+            <label for="varchar">Alamat <?php echo form_error('alamat') ?></label>
+            <input type="text" class="input w-full border mt-2" name="alamat" id="alamat" placeholder="Alamat" value="<?php echo $alamat; ?>" />
+        </div>
+	    <div class="mt-3">
+            <label for="varchar">Telp <?php echo form_error('telp') ?></label>
+            <input type="text" class="input w-full border mt-2" name="telp" id="telp" placeholder="Telp" value="<?php echo $telp; ?>" />
         </div>
 	    <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
 	    <button type="submit" class="button w-20 bg-theme-1 text-white mt-3"><?php echo $button ?></button> 

@@ -17,10 +17,10 @@ class Kodya_model extends CI_Model
 
     // datatables
     function json() {
-        $this->datatables->select('id,provinsi_id,nama');
+        $this->datatables->select('kodya.id,provinsi.nama provinsi_id,kodya.nama');
         $this->datatables->from('kodya');
         //add this line for join
-        //$this->datatables->join('table2', 'kodya.field = table2.field');
+        $this->datatables->join('provinsi', 'kodya.provinsi_id = provinsi.id');
         $this->datatables->add_column('action', anchor(site_url('kodya/read/$1'),'Read')." | ".anchor(site_url('kodya/update/$1'),'Update')." | ".anchor(site_url('kodya/delete/$1'),'Delete','onclick="javasciprt: return confirm(\'Are You Sure ?\')"'), 'id');
         return $this->datatables->generate();
     }

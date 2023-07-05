@@ -2,15 +2,6 @@
     RewriteEngine On
     RewriteCond $1 !^(index\.php|resources|robots\.txt)
 
-    RewriteCond %{REQUEST_URI} ^system.*
-    RewriteRule ^(.*)$ /gubeng/index.php?/$1 [L]
-
-    RewriteCond %{REQUEST_URI} ^application.*
-    RewriteRule ^(.*)$ /gubeng/index.php?/$1 [L]
-
-    RewriteCond %{REQUEST_URI} ^asset.*
-    RewriteRule ^(.*)$ /gubeng/index.php?/$1 [L]
-
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ /gubeng/index.php/$1 [L]
